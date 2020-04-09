@@ -3,4 +3,10 @@ target/
 */target/
 .idea/
 *.iml
-DesignPattern/
+DesignPattern/workspace
+.project
+.classpath
+workspace
+.settings
+.classpath
+.project
