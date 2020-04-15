@@ -1,0 +1,26 @@
+server:
+    port: 4005
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:4000/eureka
+    instance:
+        instance-id: zuul #此实例注册到eureka服务端得唯一得实例id
+        prefer-ip-address: true #是否显示ip地址
+        lease-renewal-interval-in-seconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍 然活着,默认为30 秒 (与下面配置的单位都是秒)
+        lease-expiration-duration-in-seconds: 30 #Eureka服务器在接收到实例得最后一次发出得心跳后，需要等待多久才可以将此实例删除，默认90秒
+spring:
+    application:
+        name: zuul
+zuul:
+    prefix: /api
+#    #是否返回后去掉前缀
+#    strip-prefix: false
+    #由于zuul已将真实地址转发，为力安全，我们需要禁用原有地址
+    ignored-services: "*"
+    routes:
+         server:
+             ##生产者地址
+            serviceId: server
+             #转发地址
+            path: /zuulserver/**
