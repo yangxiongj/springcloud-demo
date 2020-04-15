@@ -13,11 +13,28 @@ public class IndexController {
 
     @GetMapping({"","/index","main"})
     public Map<String,Object> index(){
-
         Map<String,Object> result = new HashMap();
         result.put("message","欢迎");
         result.put("code","200");
-
+        return result;
+    }
+    @GetMapping({"","/index/throw","main/throw"})
+    public Map<String,Object> indexThrow(){
+        Map<String,Object> result = new HashMap();
+        result.put("message","未知异常！");
+        result.put("code","500");
+        throw new RuntimeException();
+    }
+    @GetMapping({"","/index/sleep","main/sleep"})
+    public Map<String,Object> indexsleep(){
+        try {
+            Thread.sleep(13000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Map<String,Object> result = new HashMap();
+        result.put("message","欢迎");
+        result.put("code","200");
         return result;
     }
 }

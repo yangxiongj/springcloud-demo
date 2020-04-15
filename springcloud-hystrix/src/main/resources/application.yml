@@ -1,0 +1,35 @@
+server:
+    port: 4003
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:4000/eureka
+    instance:
+        instance-id: hystrix #此实例注册到eureka服务端得唯一得实例id
+        prefer-ip-address: true #是否显示ip地址
+        lease-renewal-interval-in-seconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍 然活着,默认为30 秒 (与下面配置的单位都是秒)
+        lease-expiration-duration-in-seconds: 30 #Eureka服务器在接收到实例得最后一次发出得心跳后，需要等待多久才可以将此实例删除，默认90秒
+spring:
+    application:
+        name: hystrix
+feign:
+    hystrix:
+        enabled: true
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 20000
+            circuitBreaker:
+                ##10秒5次异常 断路器
+                #较低级别的服务中的服务故障可能会导致级联故障，直至用户。当在由（默认值：10秒）定义的滚动窗口中，对特定服务的调用超过circuitBreaker.requestVolumeThreshold（默认值：20个请求）并且失败百分比大于circuitBreaker.errorThresholdPercentage（默认值：> 50％）时metrics.rollingStats.timeInMilliseconds，电路将断开并且不会进行调用。在错误和断路的情况下，开发人员可以提供备用功能。
+                requestVolumeThreshold: 5
+    threadpool:
+        default:
+            coreSize: 5
+        server:
+            coreSize: 5
+#        sleepWindowInMilliseconds : 5000   时间
