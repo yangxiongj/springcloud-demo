@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-config-client</artifactId>
+    <artifactId>springcloud-config-client</artifactId>
     <dependencies>
         <!--这两个包都不包含 springboot启动类 所以不加它会报错-->
         <dependency>

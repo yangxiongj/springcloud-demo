@@ -21,7 +21,9 @@
         <module>springcloud-feign</module>
         <module>springcloud-actuator</module>
         <module>springcloud-dashboard</module>
-        <module>springboot-config-client</module>
+        <module>springcloud-config-client</module>
+        <module>springcloud-zipkin</module>
+        <module>springcloud-zipkin-client</module>
     </modules>
 
     <parent>
