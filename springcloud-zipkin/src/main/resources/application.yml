@@ -1,0 +1,21 @@
+server:
+    port: 4020
+spring:
+    application:
+        name: zipkin
+#zipkin配置
+#如果为 false，可添加 @Timed 注解  监视服务bean
+management:
+    metrics:
+        web:
+            server:
+                auto-time-requests: false
+
+zipkin:
+    storage:
+        type: elasticsearch
+        elasticsearch:
+            cluster: elasticsearch
+            hosts: http://localhost:9200
+            index: zipkin
+

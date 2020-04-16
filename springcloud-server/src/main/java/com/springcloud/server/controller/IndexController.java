@@ -23,7 +23,7 @@ public class IndexController {
         Map<String,Object> result = new HashMap();
         result.put("message","未知异常！");
         result.put("code","500");
-        throw new RuntimeException();
+        throw new RuntimeException(result.toString());
     }
     @GetMapping({"","/index/sleep","main/sleep"})
     public Map<String,Object> indexsleep(){

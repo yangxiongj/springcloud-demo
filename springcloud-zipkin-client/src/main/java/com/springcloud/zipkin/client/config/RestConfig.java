@@ -1,4 +1,4 @@
-package com.springcloud.zipkin.config;
+package com.springcloud.zipkin.client.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

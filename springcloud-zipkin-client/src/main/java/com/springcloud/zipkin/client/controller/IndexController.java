@@ -1,4 +1,4 @@
-package com.springcloud.zipkin.controller;
+package com.springcloud.zipkin.client.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
