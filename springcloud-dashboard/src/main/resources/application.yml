@@ -1,0 +1,17 @@
+server:
+    port: 4007
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:4000/eureka
+    instance:
+        instance-id: dashboard #此实例注册到eureka服务端得唯一得实例id
+        prefer-ip-address: true #是否显示ip地址
+        lease-renewal-interval-in-seconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍 然活着,默认为30 秒 (与下面配置的单位都是秒)
+        lease-expiration-duration-in-seconds: 30 #Eureka服务器在接收到实例得最后一次发出得心跳后，需要等待多久才可以将此实例删除，默认90秒
+spring:
+    application:
+        name: dashboard
+feign:
+    hystrix:
+        enabled: true
