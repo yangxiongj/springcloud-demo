@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      #这是我们尧都区的配置文件名 对应获取规则是{application}
+      name: server
+      #这个是我们要获取的环境 对应的便是{profile}
+      profile: dev
+      #这个是获取的节点 对应的是{label}
+      label: master
+      #这个是ConfigServer的地址
+      uri: http://localhost:4008/

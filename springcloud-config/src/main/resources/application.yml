@@ -1,0 +1,29 @@
+server:
+    port: 4008
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:4000/eureka
+    instance:
+        instance-id: config #此实例注册到eureka服务端得唯一得实例id
+        prefer-ip-address: true #是否显示ip地址
+        lease-renewal-interval-in-seconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍 然活着,默认为30 秒 (与下面配置的单位都是秒)
+        lease-expiration-duration-in-seconds: 30 #Eureka服务器在接收到实例得最后一次发出得心跳后，需要等待多久才可以将此实例删除，默认90秒
+spring:
+    application:
+        name: config
+    cloud:
+        config:
+            #配置文件在github上的地址
+            server:
+                git:
+                    uri: https://github.com/yangxiongj/applicatiion-config.git
+#                    username:
+#                    password:
+                #Configserver会在 Git仓库根目录、 zuul，以及所有以berver开始的子目录中查找配置文件。
+                    search-paths: zuul,server*
+                #启动时就clone仓库到本地，默认是在配置被首次请求时，config server才会clone git仓库 懒加载
+#                    clone-on-start: true
+                #若配置中心在本地，本地的地址
+#                  #native:
+#                  #search-locations: classpath:/config
