@@ -1,0 +1,62 @@
+#指定可以支持的  docker-compose 版本
+version: "3.3"
+services:
+  eureka-server:
+  #Dockerfile目录位置
+    build: ./springcloud-eureka/
+    ports:
+      - "4000:4000"
+#    networks:
+#      - blade_net
+#      blade_net:
+#        ipv4_address: 127.0.0.1
+#      expose:
+#        - 4000
+    #卷挂载路径设置。可以设置宿主机路径 （HOST:CONTAINER） 或加上访问模式 （HOST:CONTAINER:ro）
+#      volumes:
+#        - ~/springcloud-demo/log:/opt/springcloud-demo/log/:ro
+  server:
+  #Dockerfile目录位置
+    build: ./springcloud-server
+  #使用宿主：容器 （HOST:CONTAINER）格式或者仅仅指定容器的端口（宿主将会随机选择端口）都可以
+    ports:
+      - "4002:4002"
+#    networks:
+#      - blade_net
+#      blade_net:
+#        ipv4_address: 127.0.0.1
+  ##暴露端口，但不映射到宿主机，只被连接的服务访问
+#    expose:
+#      - 4002
+    links:
+      - eureka-server:discovery
+  ##卷挂载路径设置。可以设置宿主机路径 （HOST:CONTAINER） 或加上访问模式 （HOST:CONTAINER:ro）
+  #  volumes:
+  #    - ~/springcloud-demo/log:/opt/springcloud-demo/log/:ro
+  #镜像别称
+  consumer:
+  #Dockerfile目录位置
+    build: ./springcloud-consumer
+  ##使用宿主：容器 （HOST:CONTAINER）格式或者仅仅指定容器的端口（宿主将会随机选择端口）都可以 等同 -p
+    ports:
+      - "4001:4001"
+#    networks:
+#      - blade_net
+#      blade_net:
+#        ipv4_address: 127.0.0.1
+  ##暴露端口，但不映射到宿主机，只被连接的服务访问
+#    expose:links
+#      - 4001
+  #连接主容器 达到互相访问
+    links:
+      - eureka-server:discovery
+  #卷挂载路径设置。可以设置宿主机路径 （HOST:CONTAINER） 或加上访问模式 （HOST:CONTAINER:ro）
+#    volumes:
+#      - ~/springcloud-demo/log:/opt/springcloud-demo/log/:ro
+#对应上面的 blade_net https://www.codercto.com/a/85972.html
+#networks:
+#  blade_net:
+#    driver: my_net
+#    ipam:
+#      config:
+#        - subnet: 127.0.0.0/16
