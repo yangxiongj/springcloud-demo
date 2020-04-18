@@ -11,3 +11,5 @@ eureka:
 spring:
     application:
         name: consumer
+logging:
+    file: log/consumer.log

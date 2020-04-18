@@ -13,3 +13,5 @@ eureka:
         register-with-eureka: false
         ###是否从Eureka中获取注册信息,因为自己为注册中心,不会在该应用中的检索服务信息
         fetch-registry: false
+logging:
+    file: log/eureka.log

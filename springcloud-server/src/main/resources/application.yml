@@ -12,3 +12,5 @@ eureka:
 spring:
     application:
         name: server
+logging:
+    file: log/server.log

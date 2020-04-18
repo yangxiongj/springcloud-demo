@@ -10,3 +10,4 @@ workspace
 .settings
 .classpath
 .project
+*/*.log
