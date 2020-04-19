@@ -26,6 +26,8 @@
         <module>springcloud-config-client</module>
         <module>springcloud-zipkin</module>
         <module>springcloud-zipkin-client</module>
+        <module>springcloud-consul</module>
+        <module>springcloud-openfeign</module>
     </modules>
 
     <parent>
