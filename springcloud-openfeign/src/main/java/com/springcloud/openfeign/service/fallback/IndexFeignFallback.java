@@ -1,6 +1,7 @@
-package com.springcloud.feign.service.fallback;
+package com.springcloud.openfeign.service.fallback;
 
-import com.springcloud.feign.service.IndexFeign;
+
+import com.springcloud.openfeign.service.IndexFeign;
 
 import java.util.Map;
 

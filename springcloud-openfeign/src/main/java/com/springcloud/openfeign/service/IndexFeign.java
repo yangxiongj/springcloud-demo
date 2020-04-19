@@ -1,6 +1,6 @@
-package com.springcloud.feign.service;
+package com.springcloud.openfeign.service;
 
-import com.springcloud.feign.service.fallback.IndexFeignFallback;
+import com.springcloud.openfeign.service.fallback.IndexFeignFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

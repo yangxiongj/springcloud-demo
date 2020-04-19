@@ -20,7 +20,6 @@
         <module>springcloud-ribbon</module>
         <module>springcloud-consumer</module>
         <module>springcloud-server</module>
-        <module>springcloud-feign</module>
         <module>springcloud-actuator</module>
         <module>springcloud-dashboard</module>
         <module>springcloud-config-client</module>

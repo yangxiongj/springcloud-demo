@@ -1,11 +1,10 @@
-package com.springcloud.feign.controller;
+package com.springcloud.openfeign;
 
-import com.springcloud.feign.service.IndexFeign;
+import com.springcloud.openfeign.service.IndexFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping
