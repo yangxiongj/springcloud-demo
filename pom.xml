@@ -27,6 +27,8 @@
         <module>springcloud-zipkin-client</module>
         <module>springcloud-consul</module>
         <module>springcloud-openfeign</module>
+        <module>springcloud-bus</module>
+        <module>springcloud-bus-client</module>
     </modules>
 
     <parent>

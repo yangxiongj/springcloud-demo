@@ -1,0 +1,28 @@
+server:
+    port: 4013
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:4000/eureka
+    instance:
+        instance-id: bus-client #此实例注册到eureka服务端得唯一得实例id
+        prefer-ip-address: true #是否显示ip地址
+        lease-renewal-interval-in-seconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍 然活着,默认为30 秒 (与下面配置的单位都是秒)
+        lease-expiration-duration-in-seconds: 30 #Eureka服务器在接收到实例得最后一次发出得心跳后，需要等待多久才可以将此实例删除，默认90秒
+spring:
+    application:
+        name: bus-client
+    #rabbitmq相关配置
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+#rabbitmq 相关配置，暴露bus刷新配置端点
+logging:
+    file: log/bus.log
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
